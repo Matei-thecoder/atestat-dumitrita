@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gucci - Fashion House</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .navbar-toggle {
+      display: none;
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 10px auto;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-top: 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+    }
+
+    .dynamic-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .dynamic-layout img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .dynamic-layout:nth-child(even) {
+      direction: rtl;
+    }
+
+    .dynamic-layout:nth-child(even) .text {
+      direction: ltr;
+    }
+
+    .slider-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slider {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slider img {
+      min-width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .slider-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+
+    .slider-buttons button {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="navbar-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">Menu</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="chanel.html">Chanel</a>
+      <a href="dior.html">Dior</a>
+      <a href="gucci.html">Gucci</a>
+      <a href="louisvuitton.html">Louis Vuitton</a>
+      <a href="versace.html">Versace</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>The Story of Gucci</h1>
+
+    <div class="dynamic-layout">
+      <div class="text">
+        <p>Gucci was founded in Florence in 1921 by Guccio Gucci, initially as a luxury luggage brand. Inspired by the sophisticated aesthetics he observed while working in London's hotels, Gucci brought a refined, Italian craftsmanship to leather goods.</p>
+      </div>
+      <img src="images/gucci1.jpg" alt="Early Gucci shop">
+    </div>
+
+    <div class="dynamic-layout">
+      <div class="text">
+        <p>By the 1950s, Gucci had become an international symbol of luxury, worn by celebrities and aristocracy alike. The iconic bamboo-handle bag and the green-red-green stripe became unmistakable signatures.</p>
+      </div>
+      <img src="images/gucci2.jpg" alt="Vintage Gucci products">
+    </div>
+
+    <div class="dynamic-layout">
+      <div class="text">
+        <p>In the 1990s and 2000s, under Tom Ford's creative direction, Gucci experienced a renaissance marked by provocative elegance. Today, under Alessandro Michele, the brand explores maximalism, gender fluidity, and bold storytelling.</p>
+      </div>
+      <img src="images/gucci3.jpg" alt="Gucci modern collection">
+    </div>
+
+    <h2>Gallery</h2>
+    <div class="slider-container">
+      <div class="slider" id="gucciSlider">
+        <img src="images/gucci4.jpg" alt="Runway look 1">
+        <img src="images/gucci5.jpg" alt="Runway look 2">
+        <img src="images/gucci6.jpg" alt="Store interior">
+        <img src="images/gucci7.jpg" alt="Bag collection">
+      </div>
+      <div class="slider-buttons">
+        <button onclick="slide(-1)" aria-label="Previous slide">&laquo; Prev</button>
+        <button onclick="slide(1)" aria-label="Next slide">Next &raquo;</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('gucciSlider');
+    const slides = slider.children;
+    const totalSlides = slides.length;
+
+    function slide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      if (currentSlide >= totalSlides) currentSlide = 0;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+  </script>
+</body>
+</html>

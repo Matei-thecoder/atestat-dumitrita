@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History of Fashion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .navbar-toggle {
+      display: none;
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 10px auto;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-top: 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="navbar-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">Menu</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="chanel.html">Chanel</a>
+      <a href="dior.html">Dior</a>
+      <a href="gucci.html">Gucci</a>
+      <a href="louisvuitton.html">Louis Vuitton</a>
+      <a href="versace.html">Versace</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>The Evolution of Modern and Contemporary Fashion</h1>
+
+    <div class="section">
+      <img src="images/history1.jpg" alt="Fashion evolution">
+      <p>Modern fashion began to take shape in the late 19th and early 20th centuries, marked by industrialization and the rise of ready-to-wear garments. Designers like Coco Chanel and Paul Poiret broke away from rigid Victorian norms, introducing simpler, more practical styles for women.</p>
+    </div>
+
+    <div class="section">
+      <img src="images/history2.jpg" alt="Contemporary runway">
+      <p>Contemporary fashion encompasses a diverse and globalized world of style. From minimalism to maximalism, streetwear to haute couture, the 21st century has seen fashion become a dynamic mix of cultural influences, technology, and sustainability. Digital fashion shows and social media have revolutionized how trends emerge and spread.</p>
+    </div>
+
+    <div class="section">
+      <img src="images/history3.jpg" alt="Sustainable fashion">
+      <p>Today, the industry is undergoing a major transformation toward sustainability, ethical practices, and inclusivity. New materials, circular production models, and diverse representation are reshaping the future of fashion.</p>
+    </div>
+  </div>
+</body>
+</html>
